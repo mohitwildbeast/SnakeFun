@@ -74,7 +74,7 @@ def runGame():
 
 #Drawing the Screen
 		SCREEN.fill(BGCOLOR)
-		#drawGrid()
+		drawGrid()
 		drawWorm(wormCoords)
 		drawApple(apple)
 		drawScore((len(wormCoords) - 3) * 10)
@@ -170,6 +170,12 @@ def drawApple(coord):
 	y = coord['y'] * CELLSIZE
 	appleRect = pygame.Rect(x, y, CELLSIZE, CELLSIZE)
 	pygame.draw.rect(SCREEN, RED, appleRect)
+
+def drawGrid():
+	for x in range(0, WINDOWWIDTH, CELLSIZE):
+		pygame.draw.line(SCREEN, DARKGRAY, (x, 0), (x, WINDOWHEIGHT))
+	for y in range(0, WINDOWHEIGHT, CELLSIZE):
+		pygame.draw.line(SCREEN, DARKGRAY, (0, y), (WINDOWWIDTH, y))
 
 if __name__ == '__main__':
 	main()
