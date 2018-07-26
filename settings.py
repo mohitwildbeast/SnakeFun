@@ -1,13 +1,3 @@
-'''
-Snake Game- Settings and Configuration File
-Author - Mohit Singh (@MohitWildBeast)
-'''
-
-import random
-import pygame
-import sys
-from pygame.locals import *
-
 FPS = 5 
 WINDOWWIDTH = 640
 WINDOWHEIGHT = 480
@@ -20,11 +10,12 @@ CELLHEIGHT = int(WINDOWHEIGHT / CELLSIZE)
 #Colour Codes
 #			 R    G    B
 WHITE    = (255, 255, 255)
-BLACK    = (0,   0,     0)
+BLACK    = (0,     0,   0)
 RED      = (255,   0,   0)
 GREEN    = (0,   255,   0)
 DARKGREEN= (0,   155,   0)
-YELLOW   = (40,   40,  40)
+DARKGRAY = (40,   40,  40)
+YELLOW   = (255, 255,   0)
 
 BGCOLOR = BLACK
 
