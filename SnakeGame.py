@@ -15,7 +15,9 @@ def main():
 
 	showStartScreen()
 	while True:
+		pygame.mixer.music.play(-1,0.0)
 		runGame()
+		pygame.mixer.music.stop()
 		showGameOverScreen()
 
 def runGame():
@@ -51,8 +53,9 @@ def runGame():
 		for wormBody in wormCoords[1:]:
 			if wormBody['x'] == wormCoords[HEAD]['x'] and wormBody['y'] == wormCoords[HEAD]['y']:
 				return
-
+		#Check Collision with Apple
 		if wormCoords[HEAD]['x'] == apple['x'] and wormCoords[HEAD]['y'] == apple['y']:
+			APPLEEATSOUND.play()
 			apple = getRandomLocation()
 		else:
 			del wormCoords[-1]

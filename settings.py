@@ -1,3 +1,10 @@
+import pygame
+from pygame.locals import *
+
+pygame.init()
+pygame.mixer.init()
+pygame.font.init()
+
 FPS = 5 
 WINDOWWIDTH = 640
 WINDOWHEIGHT = 480
@@ -26,6 +33,10 @@ LEFT = 'left'
 RIGHT = 'right'
 
 HEAD = 0 #Index of the snake's head
+
+#Game Sounds
+APPLEEATSOUND = pygame.mixer.Sound(r"sounds/appleEatSound.wav")
+BGMUSIC = pygame.mixer.music.load(r"sounds/bgmusic.mid")
 
 def levelSelect():
 	global FPS
