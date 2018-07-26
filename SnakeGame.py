@@ -22,6 +22,7 @@ def runGame():
 	#Set a random starting point
 	startx = random.randint(5, CELLWIDTH - 6)
 	starty = random.randint(5, CELLHEIGHT - 6)
+	global wormCoords
 	wormCoords = [{'x' : startx, 'y' : starty}, {'x': startx - 1, 'y':starty}, {'x':startx - 2, 'y':starty}]
 	direction = RIGHT
 
@@ -77,10 +78,13 @@ def runGame():
 		pygame.display.update()
 		CLOCK.tick(FPS)
 
+def getTotalScore():
+	return ((len(wormCoords) - 3) * 10)
+
 def drawPressKeyMsg():
-	pressKeyText = FONT.render('Press A Key To Play', True, DARKGRAY)
+	pressKeyText = FONT.render('Press A Key To Play', True, YELLOW)
 	pressKeyRect = pressKeyText.get_rect()
-	pressKeyRect.center = (WINDOWWIDTH - 200, WINDOWHEIGHT - 50)
+	pressKeyRect.center = (WINDOWWIDTH - 200, WINDOWHEIGHT - 100)
 	SCREEN.blit(pressKeyText, pressKeyRect)
 
 def checkForKeyPress():
@@ -122,8 +126,14 @@ def showGameOverScreen():
 	gameOverFont = pygame.font.Font('freesansbold.ttf', 100)
 	gameOverText = gameOverFont.render('Game Over', True, WHITE)
 	gameOverRect = gameOverText.get_rect()
+	totalscoreFont = pygame.font.Font('freesansbold.ttf', 40)
+	totalscoreText = totalscoreFont.render('Total Score: %s' % (getTotalScore()), True, WHITE)
+	totalscoreRect = totalscoreText.get_rect()
+	totalscoreRect.midtop = (WINDOWWIDTH/2, 150)
 	gameOverRect.midtop = (WINDOWWIDTH/2, 30)
+	SCREEN.fill(BGCOLOR)
 	SCREEN.blit(gameOverText, gameOverRect)
+	SCREEN.blit(totalscoreText, totalscoreRect)
 	drawPressKeyMsg()
 	pygame.display.update()
 	pygame.time.wait(1000)
