@@ -90,6 +90,9 @@ def drawPressKeyMsg():
 	pressKeyRect.center = (WINDOWWIDTH - 200, WINDOWHEIGHT - 100)
 	SCREEN.blit(pressKeyText, pressKeyRect)
 
+def drawSettingsMsg():
+	SCREEN.blit(SETTINGSBUTTON, (WINDOWWIDTH - SETTINGSBUTTON.get_width(), WINDOWHEIGHT - SETTINGSBUTTON.get_height()))
+
 def checkForKeyPress():
 	if len(pygame.event.get(QUIT)) > 0:
 		terminate()
@@ -103,7 +106,7 @@ def checkForKeyPress():
 
 def showStartScreen():
 	titlefont = pygame.font.Font('freesansbold.ttf', 100)
-	titleText = titlefont.render('SNAKE FUN', True, WHITE, DARKGREEN)
+	titleText = titlefont.render('SNAKE FUN', True, DARKGREEN)
 	while True:
 		SCREEN.fill(BGCOLOR)
 		titleTextRect = titleText.get_rect()
@@ -111,7 +114,7 @@ def showStartScreen():
 		SCREEN.blit(titleText, titleTextRect)
 
 		drawPressKeyMsg()
-
+		
 		if checkForKeyPress():
 			pygame.event.get()
 			return

@@ -38,6 +38,10 @@ HEAD = 0 #Index of the snake's head
 APPLEEATSOUND = pygame.mixer.Sound(r"sounds/appleEatSound.wav")
 BGMUSIC = pygame.mixer.music.load(r"sounds/bgmusic.mid")
 
+#Game Images
+SETTINGSIMAGE = pygame.image.load(r"images/chooseLevel.png")
+SETTINGSBUTTON = pygame.image.load(r"images/settings.png")
+
 def levelSelect():
 	global FPS
 	if level == "EASY":
